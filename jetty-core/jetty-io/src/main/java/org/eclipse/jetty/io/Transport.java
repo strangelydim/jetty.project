@@ -48,19 +48,11 @@ import org.eclipse.jetty.util.thread.Scheduler;
  * This makes possible to transport HTTP/1.1 over QUIC over Unix-Domain
  * sockets, or HTTP/2 over QUIC over shared memory, etc.</p>
  */
-public interface Transport
+public interface Transport extends TransportConstants
 {
+    // TCP_IP and UDP_IP are declared in TransportConstants; see the comment there for why.
+
     String CONTEXT_KEY = Transport.class.getName();
-
-    /**
-     * <p>The TCP/IP {@code Transport}.</p>
-     */
-    Transport TCP_IP = new TCPIP();
-
-    /**
-     * <p>The UDP/IP {@code Transport}.</p>
-     */
-    Transport UDP_IP = new UDPIP();
 
     /**
      * @return whether this {@code Transport} is intrinsically secure.
